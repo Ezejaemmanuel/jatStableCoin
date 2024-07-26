@@ -50,7 +50,7 @@ const HealthFactorCards: React.FC<HealthFactorCardsProps> = ({ loadSmall = false
         <div>
             <div className="text-xl font-bold mb-4 text-center">Defaulters</div> {/* Add the text defaulters as the title */}
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {usersToDisplay.map((userHealthFactor) => (
                     <Link key={userHealthFactor.user} href={`/dashboard/liquidateUserTable?borrowerAddress=${userHealthFactor.user}`}>
                         <Card className="bg-background p-4 rounded-lg shadow-lg">
@@ -60,7 +60,7 @@ const HealthFactorCards: React.FC<HealthFactorCardsProps> = ({ loadSmall = false
                             </div>
                             <div className="mt-4 flex items-center justify-between">
                                 <div className="text-sm text-muted-foreground">Health Factor</div>
-                                <div className="text-lg font-semibold">{Number(formatUnits(userHealthFactor.healthFactor, 18)).toFixed(4)}</div>
+                                <div className="text-lg font-semibold text-red-500 animate-pulse">{Number(formatUnits(userHealthFactor.healthFactor, 18)).toFixed(4)}</div>
                             </div>
                         </Card>
                     </Link>
