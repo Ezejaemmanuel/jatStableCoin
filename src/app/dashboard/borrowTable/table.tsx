@@ -73,34 +73,34 @@ const BorrowDetailsTable: React.FC = () => {
                             </TableHeader>
                             <TableBody>
                                 {borrowDetails.map((item: BorrowDetailsWithInterest, index: number) => (
-                                    <TableRow key={index}>
-                                        <TableCell className="text-xs md:text-base">{isBigInt(item.borrowDetails.id) ? formatUnits(item.borrowDetails.id, 0) : "N/A"}</TableCell>
-                                        <TableCell className="hidden md:table-cell text-xs md:text-base">
-                                            <Credenza open={openCredenza === 'repayBorrow'} onOpenChange={(open) => setOpenCredenza(open ? 'repayBorrow' : null)}>
-                                                <CredenzaTrigger asChild>
-                                                    <button onClick={() => handleCredenzaOpen(item)}>{middleEllipsis(item.borrowDetails.collateralAddress, 6)}</button>
-                                                </CredenzaTrigger>
-                                                <CredenzaContent>
-                                                    <RepayBorrow
-                                                        open={openCredenza === 'repayBorrow'}
-                                                        onOpenChange={(open) => setOpenCredenza(open ? 'repayBorrow' : null)}
-                                                        borrowDetails={selectedBorrowDetails}
-                                                        collateralAddress={item.borrowDetails.collateralAddress}
-                                                    />
-                                                </CredenzaContent>
-                                            </Credenza>
-                                        </TableCell>
-                                        <TableCell className="text-xs md:text-base">{formatToDollars(formatUnits(item.borrowDetails.amountOfJatCoinBorrowed, 18))}</TableCell>
-                                        <TableCell className="text-xs md:text-base">
-                                            {new Date(Number(item.borrowDetails.borrowTime) * 1000).toLocaleString()}
-                                            <br />
-                                            <span className="text-xs text-gray-500">
-                                                ({formatDistanceToNow(new Date(Number(item.borrowDetails.borrowTime) * 1000), { addSuffix: true })})
-                                            </span>
-                                        </TableCell>
-                                        <TableCell className="hidden md:table-cell text-xs md:text-base">{formatToDollars(formatUnits(item.totalDebtWithInterest, 18))}</TableCell>
-                                        <TableCell className="hidden lg:table-cell text-xs md:text-base">{formatToDollars(formatUnits(item.accumulatedInterest, 18))}</TableCell>
-                                    </TableRow>
+                                    <Credenza key={index} open={openCredenza === 'repayBorrow'} onOpenChange={(open) => setOpenCredenza(open ? 'repayBorrow' : null)}>
+                                        <CredenzaTrigger asChild>
+                                            <TableRow onClick={() => handleCredenzaOpen(item)} className='cursor-pointer'>
+                                                <TableCell className="text-xs md:text-base">{isBigInt(item.borrowDetails.id) ? formatUnits(item.borrowDetails.id, 0) : "N/A"}</TableCell>
+                                                <TableCell className="hidden md:table-cell text-xs md:text-base">
+                                                    {middleEllipsis(item.borrowDetails.collateralAddress, 6)}
+                                                </TableCell>
+                                                <TableCell className="text-xs md:text-base">{formatToDollars(formatUnits(item.borrowDetails.amountOfJatCoinBorrowed, 18))}</TableCell>
+                                                <TableCell className="text-xs md:text-base">
+                                                    {new Date(Number(item.borrowDetails.borrowTime) * 1000).toLocaleString()}
+                                                    <br />
+                                                    <span className="text-xs text-gray-500">
+                                                        ({formatDistanceToNow(new Date(Number(item.borrowDetails.borrowTime) * 1000), { addSuffix: true })})
+                                                    </span>
+                                                </TableCell>
+                                                <TableCell className="hidden md:table-cell text-xs md:text-base">{formatToDollars(formatUnits(item.totalDebtWithInterest, 18))}</TableCell>
+                                                <TableCell className="hidden lg:table-cell text-xs md:text-base">{formatToDollars(formatUnits(item.accumulatedInterest, 18))}</TableCell>
+                                            </TableRow>
+                                        </CredenzaTrigger>
+                                        <CredenzaContent>
+                                            <RepayBorrow
+                                                open={openCredenza === 'repayBorrow'}
+                                                onOpenChange={(open) => setOpenCredenza(open ? 'repayBorrow' : null)}
+                                                borrowDetails={selectedBorrowDetails}
+                                                collateralAddress={item.borrowDetails.collateralAddress}
+                                            />
+                                        </CredenzaContent>
+                                    </Credenza>
                                 ))}
                             </TableBody>
                         </Table>

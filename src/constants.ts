@@ -1,6 +1,10 @@
-export const JATENGINE_CONTRACT_ADDRESS = "0xeeb64e8A9c1C1efBbBeB43b083E3BB003A9eED11" as `0x${string}`;
-// export const WETH_ADDRESS = "0x238213078DbD09f2D15F4c14c02300FA1b2A81BB" as `0x${string}`;
-// export const WBTC_ADDRESS = "0xd85BdcdaE4db1FAEB8eF93331525FE68D7C8B3f0" as `0x${string}`;
+// export const JATENGINE_CONTRACT_ADDRESS = "0xeeb64e8A9c1C1efBbBeB43b083E3BB003A9eED11" as `0x${string}`;
+
+export const JATENGINE_CONTRACT_ADDRESS = "0xe1DA8919f262Ee86f9BE05059C9280142CF23f48" as `0x${string}`;
+
+
+
+
 
 
 

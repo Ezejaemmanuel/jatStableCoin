@@ -88,7 +88,7 @@ export const TransactionCard = ({ event }: { event: TransactionHistoryEventArgs 
     const formatValue = (value: bigint | undefined, type: TransactionType) => {
         if (value === undefined) return '-';
         const numberValue = Number(value) / 1e18; // Assuming 18 decimal places
-        return (type === TransactionType.BorrowedJatCoin || type === TransactionType.JatCoinRepaid)
+        return (type === TransactionType.BorrowedJatCoin || type === TransactionType.JatCoinRepaid || type === TransactionType.Liquidation)
             ? formatToDollars(numberValue)
             : numberValue.toFixed(2);
     };

@@ -1396,5 +1396,10 @@
                 "internalType": "address"
             }
         ]
+    },
+    {
+        "type": "error",
+        "name": "YouCannotLiquidateYourself",
+        "inputs": []
     }
 ]
