@@ -26,8 +26,8 @@ const localhost = /*#__PURE__*/ defineChain({
    },
 })
 
-// const supportedChains: Chain[] = [localhost, sepolia];
-const supportedChains: Chain[] = [localhost];
+const supportedChains: Chain[] = [localhost, sepolia];
+// const supportedChains: Chain[] = [localhost];
 
 
 export const config = getDefaultConfig({
