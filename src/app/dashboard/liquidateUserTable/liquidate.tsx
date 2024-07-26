@@ -9,7 +9,7 @@ import jatEngineAbi from "../../../../abis/jatEngine.json";
 import erc20Abi from "../../../../abis/erc20Mock.json"; // Assuming this is the correct path
 import { JATENGINE_CONTRACT_ADDRESS } from '@/constants';
 import { useQueryClient } from '@tanstack/react-query';
-import { formatUnits, parseUnits } from 'viem';
+import { BaseError, formatUnits, parseUnits } from 'viem';
 import { middleEllipsis } from '@/lib/format-address';
 import { BorrowDetailsWithInterest } from '../borrowTable/types';
 
@@ -218,10 +218,26 @@ const LiquidateUser: React.FC<LiquidateUserProps> = ({ open, onOpenChange, borro
                         <div className="mt-4 text-destructive text-xs">
                             <p>Error occurred:</p>
                             <ul className="list-disc list-inside">
-                                {approveError && <li>Approve Error: {(approveError as any).shortMessage}</li>}
-                                {liquidateError && <li>Liquidate Error: {(liquidateError as any).shortMessage}</li>}
-                                {approveReceiptError && <li>Approve Receipt Error: {(approveReceiptError as any).shortMessage}</li>}
-                                {liquidateReceiptError && <li>Liquidate Receipt Error: {(liquidateReceiptError as any).shortMessage}</li>}
+                                {approveError && (
+                                    <li>
+                                        Approve Error: {(approveError as BaseError)?.shortMessage} {(approveError as BaseError)?.metaMessages?.[0] && `- ${(approveError as BaseError)?.metaMessages?.[0]}`}
+                                    </li>
+                                )}
+                                {liquidateError && (
+                                    <li>
+                                        Deposit Error: {(liquidateError as BaseError)?.shortMessage} {(liquidateError as BaseError)?.metaMessages?.[0] && `- ${(liquidateError as BaseError)?.metaMessages?.[0]}`}
+                                    </li>
+                                )}
+                                {approveReceiptError && (
+                                    <li>
+                                        Approve Receipt Error: {(approveReceiptError as BaseError)?.shortMessage} {(approveReceiptError as BaseError)?.metaMessages?.[0] && `- ${(approveReceiptError as BaseError)?.metaMessages?.[0]}`}
+                                    </li>
+                                )}
+                                {liquidateReceiptError && (
+                                    <li>
+                                        Deposit Receipt Error: {(liquidateReceiptError as BaseError)?.shortMessage} {(liquidateReceiptError as BaseError)?.metaMessages?.[0] && `- ${(liquidateReceiptError as BaseError)?.metaMessages?.[0]}`}
+                                    </li>
+                                )}
                             </ul>
                         </div>
                     )}

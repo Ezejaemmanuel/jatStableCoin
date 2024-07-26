@@ -1,3 +1,4 @@
+import { Header } from "./dashboard/header";
 import JatCoinYield from "./dashboard/HomePage/earnWithJatcoin";
 import JatCoinOverview from "./dashboard/HomePage/hero";
 import { JatCoinPage } from "./dashboard/HomePage/how-to-step";
@@ -10,15 +11,19 @@ import WhyJatCoinSection from "./dashboard/HomePage/why-section";
 export default function Home() {
   return (
     <div className="items-center justify-center bg-neutral-950">
+      <div>
+        <Header />
+      </div>
+
       <main className="bg-neutral-950">
         <JatCoinOverview />
       </main>
 
-      <StickySection>
+      {/* <StickySection>
         <main className="bg-neutral-950">
           <JatCoinPage />
         </main>
-      </StickySection>
+      </StickySection> */}
       <StickySection>
         <WhyJatCoinSection />
       </StickySection>

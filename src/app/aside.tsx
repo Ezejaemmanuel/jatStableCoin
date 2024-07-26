@@ -134,8 +134,13 @@ export function MintMocks() {
                 {isConfirming && <div className="mt-4">Waiting for confirmation...</div>}
                 {isConfirmed && <div className="mt-4">Transaction confirmed.</div>}
                 {error && (
-                    <div className="mt-4 text-red-500">
-                        Error: {(error as BaseError).shortMessage || error.message}
+                    <div className='flex flex-col justify-center items-center'>
+                        <div className="mt-4 text-red-500">
+                            Error: {(error as BaseError).shortMessage || error.message}
+                        </div>
+                        <div>
+                            Error: {(error as BaseError).metaMessages?.[0] ?? error.message}
+                        </div>
                     </div>
                 )}
                 <div className="mt-4">

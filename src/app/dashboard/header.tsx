@@ -41,10 +41,7 @@ export const Header = () => {
                             </SheetTrigger>
                             <SheetContent side="left" className="w-64 sm:max-w-sm dark:bg-background dark:border-neutral-800">
                                 <nav className="flex flex-col space-y-4 mt-8">
-                                    <Link href="/" className="flex items-center justify-center w-12 h-12 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 transition-colors" prefetch={false}>
-                                        <GhostIcon className="h-6 w-6" />
-                                        <span className="sr-only">GHO Dashboard</span>
-                                    </Link>
+
                                     {navItems.map((item, index) => (
                                         <Link
                                             key={index}
@@ -62,7 +59,7 @@ export const Header = () => {
                                 </nav>
                             </SheetContent>
                         </Sheet>
-                        <Breadcrumb className="hidden md:flex">
+                        {/* <Breadcrumb className="hidden md:flex">
                             <BreadcrumbList>
                                 <BreadcrumbItem>
                                     <BreadcrumbLink asChild>
@@ -76,7 +73,7 @@ export const Header = () => {
                                     <BreadcrumbPage>GHO Dashboard</BreadcrumbPage>
                                 </BreadcrumbItem>
                             </BreadcrumbList>
-                        </Breadcrumb>
+                        </Breadcrumb> */}
                     </div>
                     <div className="flex items-center space-x-4">
                         <ConnectBtn />

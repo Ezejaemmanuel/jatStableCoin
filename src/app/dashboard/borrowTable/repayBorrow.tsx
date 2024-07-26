@@ -1,5 +1,5 @@
 import React, { useState, useEffect, FormEvent } from 'react';
-import { useWriteContract, useWaitForTransactionReceipt, useReadContract, useAccount } from 'wagmi';
+import { useWriteContract, useWaitForTransactionReceipt, useReadContract, useAccount, BaseError } from 'wagmi';
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Loader2 } from "lucide-react";
@@ -230,10 +230,26 @@ const RepayBorrow: React.FC<RepayBorrowProps> = ({ open, onOpenChange, borrowDet
                         <div className="mt-4 text-destructive text-xs">
                             <p>Error occurred:</p>
                             <ul className="list-disc list-inside">
-                                {approveError && <li>Approve Error: {(approveError as any).shortMessage}</li>}
-                                {repayError && <li>Repay Error: {(repayError as any).shortMessage}</li>}
-                                {approveReceiptError && <li>Approve Receipt Error: {(approveReceiptError as any).shortMessage}</li>}
-                                {repayReceiptError && <li>Repay Receipt Error: {(repayReceiptError as any).shortMessage}</li>}
+                                {approveError && (
+                                    <li>
+                                        Approve Error: {(approveError as BaseError)?.shortMessage} {(approveError as BaseError)?.metaMessages?.[0] && `- ${(approveError as BaseError)?.metaMessages?.[0]}`}
+                                    </li>
+                                )}
+                                {repayError && (
+                                    <li>
+                                        Deposit Error: {(repayError as BaseError)?.shortMessage} {(repayError as BaseError)?.metaMessages?.[0] && `- ${(repayError as BaseError)?.metaMessages?.[0]}`}
+                                    </li>
+                                )}
+                                {approveReceiptError && (
+                                    <li>
+                                        Approve Receipt Error: {(approveReceiptError as BaseError)?.shortMessage} {(approveReceiptError as BaseError)?.metaMessages?.[0] && `- ${(approveReceiptError as BaseError)?.metaMessages?.[0]}`}
+                                    </li>
+                                )}
+                                {repayReceiptError && (
+                                    <li>
+                                        Deposit Receipt Error: {(repayReceiptError as BaseError)?.shortMessage} {(repayReceiptError as BaseError)?.metaMessages?.[0] && `- ${(repayReceiptError as BaseError)?.metaMessages?.[0]}`}
+                                    </li>
+                                )}
                             </ul>
                         </div>
                     )}

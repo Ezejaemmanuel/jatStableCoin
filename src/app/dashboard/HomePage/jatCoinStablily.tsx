@@ -9,12 +9,12 @@ const JatCoinStability: React.FC = () => {
         title: "JatCoin Stability Mechanism",
         description:
             "JatCoin maintains its stability through an innovative over-collateralization system. Users deposit collateral assets into the Jatique protocol, allowing them to mint JatCoin. Our advanced algorithms continuously monitor market conditions and adjust collateral ratios to ensure JatCoin's peg to its target value, providing users with a reliable and stable digital asset.",
-        imageUrl: "/jatcoin-stability.png", // Replace with an appropriate image
+        imageUrl: "/jatcoin-stabiliity.png", // Replace with an appropriate image
         reverse: false,
     };
 
     return (
-        <section className="body-font mx-auto flex max-w-[99dvw] flex-col items-center justify-center overflow-hidden  text-gray-600 bg-neutral-950 md:max-w-[90dvw] lg:max-w-[80dvw]">
+        <section className="body-font mx-auto flex h-screen max-w-[99dvw] flex-col items-center justify-center overflow-hidden  text-gray-600 bg-neutral-950 md:max-w-[99dvw] lg:max-w-[99dvw]">
             <div
                 className={`container mx-auto flex items-center overflow-hidden px-5 ${section.reverse ? "flex-col md:flex-row" : "flex-col-reverse md:flex-row-reverse"}`}
             >

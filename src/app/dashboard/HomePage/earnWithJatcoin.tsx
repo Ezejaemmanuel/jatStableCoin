@@ -8,12 +8,12 @@ const JatCoinYield: React.FC = () => {
         title: "Earn with JatCoin",
         description:
             "JatCoin offers innovative yield generation opportunities for holders. By participating in the JatCoin ecosystem, users can earn passive income through various mechanisms such as staking, liquidity provision, and governance rewards. Our smart contract system automatically optimizes yields, ensuring competitive returns while maintaining the stability of the JatCoin ecosystem.",
-        imageUrl: "/jatcoin-yield.png", // Replace with an appropriate image
+        imageUrl: "/earn-with-jatcoin.png", // Replace with an appropriate image
         reverse: true, // Set to true for alternating layout
     };
 
     return (
-        <section className="body-font mx-auto flex max-w-[99dvw] flex-col items-center justify-center overflow-hidden bg-neutral-950 text-gray-600 dark:bg-neutral-950 md:max-w-[90dvw] lg:max-w-[80dvw]">
+        <section className="body-font h-screen mx-auto flex max-w-[99dvw] flex-col items-center justify-center overflow-hidden bg-neutral-950 text-gray-600 dark:bg-neutral-950 md:max-w-[96dvw] lg:max-w-[96dvw]">
             <div
                 className={`container mx-auto flex items-center overflow-hidden px-5 ${section.reverse ? "flex-col md:flex-row" : "flex-col-reverse md:flex-row-reverse"}`}
             >
@@ -35,13 +35,14 @@ const JatCoinYield: React.FC = () => {
 
                     </div>
                 </div>
-                <div className="relative w-5/6 overflow-hidden md:w-1/2 lg:w-full lg:max-w-lg">
+                <div className="relative w-5/6 overflow-hidden md:w-[70%] lg:w-full lg:max-w-lg">
                     <Image
                         className="bg-inherit object-cover object-center"
                         alt="JatCoin Yield Generation"
-                        width={2000}
-                        height={2000}
-                        quality={70}
+
+                        width={1000}
+                        height={1000}
+                        quality={100}
                         src={section.imageUrl}
                     />
                 </div>

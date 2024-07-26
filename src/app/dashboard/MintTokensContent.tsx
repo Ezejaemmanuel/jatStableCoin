@@ -1,6 +1,6 @@
 import React, { useState, useEffect, FormEvent } from 'react';
 import { useAccount } from 'wagmi';
-import { parseUnits } from 'viem';
+import { BaseError, parseUnits } from 'viem';
 import { useWriteContract, useWaitForTransactionReceipt, useReadContract } from 'wagmi';
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -175,11 +175,25 @@ const MintTokensContent: React.FC<MintTokensContentProps> = ({ open, onOpenChang
                     </form>
                     {writeContractError && (
                         //@ts-ignore
-                        <p className="mt-2 text-destructive text-sm">Error: {writeContractError.shortMessage}</p>
+                        <div className='flex flex-col justify-center items-center'>
+                            <div className="mt-4 text-red-500">
+                                Error: {(writeContractError as BaseError).shortMessage || writeContractError.message}
+                            </div>
+                            <div>
+                                Error: {(writeContractError as BaseError).metaMessages?.[0] ?? writeContractError.message}
+                            </div>
+                        </div>
                     )}
                     {waitForReceiptError && (
                         //@ts-ignore
-                        <p className="mt-2 text-destructive text-sm">Error: {waitForReceiptError.shortMessage}</p>
+                        <div className='flex flex-col justify-center items-center'>
+                            <div className="mt-4 text-red-500">
+                                Error: {(waitForReceiptError as BaseError).shortMessage || waitForReceiptError.message}
+                            </div>
+                            <div>
+                                Error: {(waitForReceiptError as BaseError).metaMessages?.[0] ?? waitForReceiptError.message}
+                            </div>
+                        </div>
                     )}
                 </>
             )}

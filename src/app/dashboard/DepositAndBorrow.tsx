@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useAccount } from 'wagmi';
+import { BaseError, useAccount } from 'wagmi';
 import { parseUnits } from 'viem';
 import { useWriteContract, useWaitForTransactionReceipt, useReadContract } from 'wagmi';
 import { Input } from "@/components/ui/input";
@@ -291,11 +291,29 @@ const DepositAndBorrow: React.FC<DepositAndBorrowProps> = ({ open, onOpenChange,
                         <div className="mt-4 text-destructive text-xs">
                             <p>Error occurred:</p>
                             <ul className="list-disc list-inside">
-                                {approveError && <li>Approve Error: {(approveError as any).shortMessage}</li>}
-                                {depositError && <li>Deposit Error: {(depositError as any).shortMessage}</li>}
-                                {approveReceiptError && <li>Approve Receipt Error: {(approveReceiptError as any).shortMessage}</li>}
-                                {depositReceiptError && <li>Deposit Receipt Error: {(depositReceiptError as any).shortMessage}</li>}
+                                {approveError && (
+                                    <li>
+                                        Approve Error: {(approveError as BaseError)?.shortMessage} {(approveError as BaseError)?.metaMessages?.[0] && `- ${(approveError as BaseError)?.metaMessages?.[0]}`}
+                                    </li>
+                                )}
+                                {depositError && (
+                                    <li>
+                                        Deposit Error: {(depositError as BaseError)?.shortMessage} {(depositError as BaseError)?.metaMessages?.[0] && `- ${(depositError as BaseError)?.metaMessages?.[0]}`}
+                                    </li>
+                                )}
+                                {approveReceiptError && (
+                                    <li>
+                                        Approve Receipt Error: {(approveReceiptError as BaseError)?.shortMessage} {(approveReceiptError as BaseError)?.metaMessages?.[0] && `- ${(approveReceiptError as BaseError)?.metaMessages?.[0]}`}
+                                    </li>
+                                )}
+                                {depositReceiptError && (
+                                    <li>
+                                        Deposit Receipt Error: {(depositReceiptError as BaseError)?.shortMessage} {(depositReceiptError as BaseError)?.metaMessages?.[0] && `- ${(depositReceiptError as BaseError)?.metaMessages?.[0]}`}
+                                    </li>
+                                )}
                             </ul>
+
+
                         </div>
                     )}
                     {isLoading && <p className="mt-2 text-xs text-muted-foreground">Loading collateral addresses...</p>}

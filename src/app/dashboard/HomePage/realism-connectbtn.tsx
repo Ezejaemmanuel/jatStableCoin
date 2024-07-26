@@ -43,7 +43,7 @@ export const ConnectBtn = () => {
         }
     };
 
-    const buttonText = isConnected ? "Go to Dashboard" : (isConnecting ? "Connecting..." : "Get Started");
+    const buttonText = isConnected ? "Dashboard" : (isConnecting ? "Connecting..." : "Get Started");
 
     if (isConnected && !chain) {
         return (

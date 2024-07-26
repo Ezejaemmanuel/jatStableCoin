@@ -9,13 +9,13 @@ const JatCoinGovernance: React.FC = () => {
         title: "Community-Driven Governance",
         description:
             "JatCoin is governed by the Jatique DAO, ensuring a truly decentralized and community-driven approach. Token holders can participate in key decisions, including risk parameters, interest rates, and protocol upgrades. This governance model ensures that JatCoin remains responsive to user needs and adaptable to market conditions.",
-        imageUrl: "/jatcoin-governance.png", // Replace with an appropriate image
+        imageUrl: "/jatcoin-governance-2.png", // Replace with an appropriate image
         reverse: false,
     };
 
     return (
         // components/JatCoinGovernance.tsx (continued)
-        <section className="body-font mx-auto flex max-w-[99dvw] flex-col items-center justify-center overflow-hidden bg-neutral-950 text-gray-600  md:max-w-[90dvw] lg:max-w-[80dvw]">
+        <section className="body-font h-screen mx-auto flex max-w-[99dvw] flex-col items-center justify-center overflow-hidden bg-neutral-950 text-gray-600  md:max-w-[98dvw] lg:max-w-[96dvw]">
             <div
                 className={`container mx-auto flex items-center overflow-hidden px-5 ${section.reverse ? "flex-col md:flex-row" : "flex-col-reverse md:flex-row-reverse"}`}
             >
@@ -39,11 +39,11 @@ const JatCoinGovernance: React.FC = () => {
                 </div>
                 <div className="relative w-5/6 overflow-hidden md:w-1/2 lg:w-full lg:max-w-lg">
                     <Image
-                        className="bg-inherit object-cover object-center"
+                        className="bg-inherit object-cover rounded-full object-center"
                         alt="JatCoin Governance"
-                        width={2000}
-                        height={2000}
-                        quality={70}
+                        width={700}
+                        height={700}
+                        quality={100}
                         src={section.imageUrl}
                     />
                 </div>
